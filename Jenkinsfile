@@ -15,7 +15,8 @@ node
   
   stage("CheckOutCodeGit")
   {
-   git branch: 'development', credentialsId: '65fb834f-a83b-4fe7-8e11-686245c47a65', url: 'https://github.com/Somesh16/maven-web-application-1.git'
+  checkout([$class: 'GitSCM', branches: [[name: '*/uat']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [],
+            userRemoteConfigs: [[credentialsId: 'c897140a-285c-4017-a50e-8265887e47a8', url: 'https://github.com/Somesh16/maven-web-application-1.git']]])
  }
  
  stage("Build")
